@@ -1,0 +1,62 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Golden1</title>
+  </head>
+  <body>
+      <div>
+          <input type="number" id="markHeight" placeholder="Mark's Height"><br>
+          <input type="number" id="markMass" placeholder="Mark's Mass">
+          <button type="button" onclick="checkMark()">Check Mark's BMI</button><br>
+          <p id="BMImark">Mark's BMI will be displayed Here.</p>
+            <br><br>
+          <input type="number" id="johnHeight" placeholder="John's Height"><br>
+          <input type="number" id="johnMass" placeholder="John's Mass">
+          <button type="button" onclick="checkJohn()">Check John's BMI</button>
+            <br>
+          <p id="BMIjohn">John's BMI will be displayed Here.</p>
+          <br><br><br><br>
+        <div>
+            <p>Click On the Button Below to Check Boolean</p>
+            <button type="button" onclick="checkBoolean()">CHECK</button><br><br>
+            <p id="checkB"></p>
+        </div>   
+      </div>
+
+      <script>
+          function checkMark() {
+              var MarkHeight = document.getElementById('markHeight').value;
+              var MarkMass = document.getElementById('markMass').value;
+              var MarkBMI = MarkMass/(MarkHeight**2);
+              document.getElementById('BMImark').innerHTML = MarkBMI
+          }
+          function checkJohn() {
+              var JohnHeight = document.getElementById('johnHeight').value;
+              var JohnMass = document.getElementById('johnMass').value;
+              var JohnBMI = JohnMass/(JohnHeight**2);
+              document.getElementById('BMIjohn').innerHTML = JohnBMI
+          }
+          function checkBoolean() {
+              var MarkHeight = document.getElementById('markHeight').value;
+              var MarkMass = document.getElementById('markMass').value;
+              var MarkBMI = MarkMass/(MarkHeight**2);
+
+              var JohnHeight = document.getElementById('johnHeight').value;
+              var JohnMass = document.getElementById('johnMass').value;
+              var JohnBMI = JohnMass/(JohnHeight**2);
+
+              var markHigherBMI = Boolean(MarkBMI > JohnBMI);
+              if (markHigherBMI == true) {
+                  document.getElementById('checkB').innerHTML = "Mark has a Higher BMI than John"
+                  console.log(`Mark's BMI (`+ MarkBMI +`) is higher than John's(`+ JohnBMI +`)!`)  
+              } else {
+                  document.getElementById('checkB').innerHTML = "John has a Higher BMI than Mark"
+                  console.log(`John's BMI (`+ JohnBMI +`) is higher than Mark's(`+ MarkBMI +`)!`)
+              }
+          }
+      </script>
+  </body>
+  </html>
